@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>UNO Offline</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0b3d2e">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="description" content="Game kartu UNO offline dengan 3 tingkat kesulitan.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ===== MENU ===== -->
+  <section id="menu" class="screen">
+    <div class="menu-head">
+      <div class="logo" aria-hidden="true"><span>U</span></div>
+      <h1>UNO Offline</h1>
+      <p class="sub">Lawan 3 bot. Tanpa internet.</p>
+    </div>
+
+    <div class="diff-wrap">
+      <h2>Pilih tingkat kesulitan</h2>
+      <div id="diffList" class="diff-list" role="radiogroup" aria-label="Tingkat kesulitan"></div>
+    </div>
+
+    <div class="menu-actions">
+      <button id="btnStart" class="btn primary big">Mulai Main</button>
+      <div class="row2">
+        <button id="btnRules" class="btn ghost">Aturan</button>
+        <button id="btnStats" class="btn ghost">Statistik</button>
+      </div>
+      <button id="btnInstall" class="btn ghost hidden">Pasang sebagai aplikasi</button>
+      <p class="net" id="netState"></p>
+    </div>
+  </section>
+
+  <!-- ===== GAME ===== -->
+  <section id="game" class="screen hidden">
+    <header class="topbar">
+      <button id="btnPause" class="icon-btn" aria-label="Menu">☰</button>
+      <div class="diff-chip" id="diffChip">Sedang</div>
+      <button id="btnSound" class="icon-btn" aria-label="Suara">🔊</button>
+    </header>
+
+    <div id="status" class="status">&nbsp;</div>
+
+    <div id="opps" class="opps"></div>
+
+    <div class="table">
+      <div class="pile-wrap">
+        <button id="draw" class="pile draw" aria-label="Ambil kartu">
+          <div class="card back"><div class="face"><b>UNO</b></div></div>
+          <span id="drawCount" class="pile-count">0</span>
+        </button>
+        <div class="pile-label">Ambil</div>
+      </div>
+
+      <div class="center">
+        <div id="dirBadge" class="dir" title="Arah putaran">↻</div>
+        <div id="discard" class="discard"></div>
+        <div id="colorBadge" class="color-badge"><i></i><span></span></div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="btnUno" class="btn uno hidden">UNO!</button>
+      <button id="btnPass" class="btn ghost hidden">Lewati</button>
+    </div>
+
+    <div class="hand-wrap">
+      <div id="handInfo" class="hand-info"></div>
+      <div id="hand" class="hand"></div>
+    </div>
+  </section>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="modal" class="modal hidden"><div id="sheet" class="sheet"></div></div>
+</div>
+<noscript>Game ini membutuhkan JavaScript.</noscript>
+<script src="game.js"></script>
+</body>
+</html>
